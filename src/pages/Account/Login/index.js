@@ -1,10 +1,20 @@
 import React from "react";
 import GoogleLogin from "react-google-login";
+import FacebookLogin from "react-facebook-login/dist/facebook-login-render-props";
 import { FaFacebookF, FaGoogle } from "react-icons/fa";
 import { Card, Form, Button } from "react-bootstrap";
 import { authService } from "../../../services";
 
 export default function Login() {
+  const responseFacebook = async (response) => {
+    console.log(response);
+    const res = await authService.loginWithFacebook(
+      response.userID,
+      response.accessToken
+    );
+    console.log("🚀 ~ file: index.js ~ line 14 ~ responseFacebook ~ res", res);
+  };
+
   const responseGoogle = async (response) => {
     console.log(response);
     const { user, tokens } = await authService.loginWithGoogle(
@@ -48,9 +58,20 @@ export default function Login() {
         </Form>
         <p>Login with your Social Account</p>
         <div className="social-buttons">
-          <Button variant="primary" className="fb">
-            <FaFacebookF />
-          </Button>
+          <FacebookLogin
+            appId={process.env.REACT_APP_FACEBOOK_APP_ID}
+            autoLoad
+            callback={responseFacebook}
+            render={(renderProps) => (
+              <Button
+                variant="primary"
+                className="fb"
+                onClick={renderProps.onClick}
+              >
+                <FaFacebookF />
+              </Button>
+            )}
+          />
 
           <GoogleLogin
             clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}
