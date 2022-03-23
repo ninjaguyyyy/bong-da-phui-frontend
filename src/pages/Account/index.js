@@ -1,10 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 import { Button, Col, Container, Row } from "react-bootstrap";
 import "./index.css";
 import Login from "./Login";
 import Register from "./Register";
 
+export const AccountPageSections = {
+  Login: "login",
+  Register: "register",
+};
+
 export default function Account() {
+  const [selectedSection, setSelectedSection] = useState(
+    AccountPageSections.Login
+  );
+
   return (
     <div className="account-page">
       <Container>
@@ -25,18 +34,30 @@ export default function Account() {
               <Button
                 variant="outline-light"
                 size="lg"
-                className="login active"
+                className={`login ${
+                  selectedSection === AccountPageSections.Login ? "active" : ""
+                }`}
+                onClick={() => setSelectedSection(AccountPageSections.Login)}
               >
                 Login
               </Button>
-              <Button variant="outline-light" size="lg" className="register">
+              <Button
+                variant="outline-light"
+                size="lg"
+                className={`register ${
+                  selectedSection === AccountPageSections.Register
+                    ? "active"
+                    : ""
+                }`}
+                onClick={() => setSelectedSection(AccountPageSections.Register)}
+              >
                 Register
               </Button>
             </div>
           </Col>
           <Col className="account-form">
-            {/* <Login /> */}
-            <Register />
+            {selectedSection === AccountPageSections.Login && <Login />}
+            {selectedSection === AccountPageSections.Register && <Register />}
           </Col>
         </Row>
       </Container>

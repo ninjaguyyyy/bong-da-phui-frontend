@@ -12,31 +12,34 @@ export default function Login() {
           className="rocket-image"
         />
         <Card.Title className="title">Account Login</Card.Title>
-        <Card.Text>
-          <Form>
-            <Form.Group className="mb-3" controlId="formBasicEmail">
-              <Form.Control
-                type="text"
-                placeholder="Username"
-                className="mb-4"
-              />
-              <Form.Control type="password" placeholder="Password" />
-            </Form.Group>
+        <Form>
+          <Form.Group className="mb-3">
+            <Form.Control
+              type="text"
+              placeholder="Username"
+              className="mb-4"
+              id="username"
+            />
+            <Form.Control
+              type="password"
+              placeholder="Password"
+              id="password"
+            />
+          </Form.Group>
 
-            <Button variant="primary" type="submit" className="w-100 submit">
-              Login to your Account
-            </Button>
-          </Form>
-          <p>Login with your Social Account</p>
-          <div className="social-buttons">
-            <Button variant="primary" className="fb">
-              <FaFacebookF />
-            </Button>
-            <Button variant="danger" className="gg">
-              <FaGoogle />
-            </Button>
-          </div>
-        </Card.Text>
+          <Button variant="primary" type="submit" className="w-100 submit">
+            Login to your Account
+          </Button>
+        </Form>
+        <p>Login with your Social Account</p>
+        <div className="social-buttons">
+          <Button variant="primary" className="fb">
+            <FaFacebookF />
+          </Button>
+          <Button variant="danger" className="gg">
+            <FaGoogle />
+          </Button>
+        </div>
       </Card.Body>
     </Card>
   );

@@ -11,23 +11,26 @@ export default function Register() {
           className="rocket-image"
         />
         <Card.Title className="title">Create your Account</Card.Title>
-        <Card.Text>
-          <Form>
-            <Form.Group className="mb-3" controlId="formBasicEmail">
-              <Form.Control type="text" placeholder="Username" />
-              <Form.Control
-                type="password"
-                placeholder="Password"
-                className="mb-4 mt-4"
-              />
-              <Form.Control type="password" placeholder="Repeat Password" />
-            </Form.Group>
+        <Form>
+          <Form.Group className="mb-3">
+            <Form.Control type="text" placeholder="Username" id="username" />
+            <Form.Control
+              type="password"
+              placeholder="Password"
+              className="mb-4 mt-4"
+              id="password"
+            />
+            <Form.Control
+              type="password"
+              placeholder="Repeat Password"
+              id="repeat-password"
+            />
+          </Form.Group>
 
-            <Button variant="primary" type="submit" className="w-100 submit">
-              Register Now
-            </Button>
-          </Form>
-        </Card.Text>
+          <Button variant="primary" type="submit" className="w-100 submit">
+            Register Now
+          </Button>
+        </Form>
       </Card.Body>
     </Card>
   );

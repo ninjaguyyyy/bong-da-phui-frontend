@@ -43,6 +43,10 @@
   width: 200px;
 }
 
+.account-page__buttons button:focus {
+  box-shadow: none !important;
+}
+
 .account-page__buttons button .active {
   background-color: #fff;
 }
