@@ -7,3 +7,7 @@ export const setAccessToken = (accessToken) => {
 export const getAccessToken = () => {
   return localStorage.getItem(KEY);
 };
+
+export const removeAccessToken = () => {
+  localStorage.removeItem(KEY);
+};

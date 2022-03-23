@@ -1,4 +1,5 @@
 import React from "react";
+import { Outlet } from "react-router-dom";
 import Header from "./components/Header";
 import LeftSidebar from "./components/LeftSidebar";
 import RightSidebar from "./components/RightSidebar";
@@ -10,7 +11,9 @@ export default function MainLayout(props) {
       <Header />
       <div className="d-flex justify-content-between wrapper">
         <LeftSidebar />
+
         <main>{props.children}</main>
+
         <RightSidebar />
       </div>
     </>

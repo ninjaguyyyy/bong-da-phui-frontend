@@ -1,6 +1,6 @@
 import axios from "axios";
 import queryString from "query-string";
-import { getAccessToken } from "../utils";
+import { getAccessToken, removeAccessToken } from "../utils";
 
 const axiosClient = axios.create({
   baseURL: process.env.REACT_APP_API_URL,
@@ -21,6 +21,8 @@ axiosClient.interceptors.request.use(function (config) {
 axiosClient.interceptors.response.use(
   (response) => {
     if (response && response.data) {
+      response.data.code === 401 && removeAccessToken();
+
       return response.data;
     }
     return response;
