@@ -1,0 +1,102 @@
+.account-page {
+  height: 100vh;
+  background: url("../../assets/images/bg-account.jpg") no-repeat center fixed;
+  background-size: cover;
+  color: #fff;
+  font-family: "Rajdhani", sans-serif;
+}
+
+.account-page__contents {
+  padding-top: 200px;
+}
+
+.account-page__welcome {
+  text-align: center;
+}
+
+.account-page__welcome h6 {
+  margin-top: 36px;
+  font-weight: 500;
+  font-size: 1.5rem;
+}
+
+.account-page__welcome h1 {
+  font-family: "Titillium Web", sans-serif;
+  font-weight: 900;
+  font-size: 5.5rem;
+}
+
+.account-page__welcome p {
+  font-weight: 500;
+  font-size: 1.125rem;
+  margin: 30px auto 0;
+  width: 384px;
+}
+
+.account-page__buttons {
+  margin-top: 50px;
+}
+
+.account-page__buttons button {
+  font-weight: 600;
+  font-size: 1.1rem;
+  width: 200px;
+}
+
+.account-page__buttons button .active {
+  background-color: #fff;
+}
+
+.account-page__buttons .login {
+  border-bottom-right-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.account-page__buttons .register {
+  border-bottom-left-radius: 0;
+  border-top-left-radius: 0;
+}
+
+.account-form {
+  color: #000;
+  text-align: center;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.account-form .wrapper {
+  width: 420px;
+  padding: 45px;
+  height: 100%;
+}
+
+.account-form .title {
+  font-weight: 700;
+  font-size: 1.625rem;
+  margin-bottom: 50px;
+}
+
+.account-form .form-control {
+  font-weight: 500;
+  height: 54px;
+}
+
+.account-form .submit {
+  font-weight: 600;
+  margin-top: 50px;
+}
+
+.account-form p {
+  margin: 40px 0;
+}
+
+.account-form .social-buttons button {
+  margin: 0 10px;
+  border-radius: 8px;
+}
+
+.rocket-image {
+  position: absolute;
+  top: -70px;
+  left: -70px;
+}
