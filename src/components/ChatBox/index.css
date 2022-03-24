@@ -1,0 +1,102 @@
+.chat-box,
+.chat-box input {
+  font-weight: 500;
+}
+
+.chat-box .card {
+  width: 22rem;
+  padding-bottom: '20px';
+}
+
+.chat-box .card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: none;
+}
+
+.chat-box .card-header .receiver {
+  display: flex;
+  align-items: center;
+}
+
+.chat-box .card-header .receiver span {
+  margin-left: 10px;
+  font-weight: 600;
+  font-size: 1.125rem;
+}
+
+.chat-box .card-body {
+  padding-right: 0;
+}
+
+.chat-box .card-body .messages {
+  overflow-y: scroll;
+  height: 350px;
+  margin-bottom: 30px;
+}
+
+.chat-box .card-body .messages .contents {
+  padding-right: 10px;
+}
+
+.chat-box .card-body .messages .contents .start {
+  margin-bottom: 30px;
+}
+
+.chat-box .card-body .messages::-webkit-scrollbar {
+  width: 12px;
+}
+
+.chat-box .card-body .messages::-webkit-scrollbar-thumb {
+  border: 4px solid rgba(0, 0, 0, 0);
+  background-clip: padding-box;
+  border-radius: 9999px;
+  background-color: #aaaaaa;
+}
+
+.chat-box .chat-input {
+  display: flex;
+  align-items: center;
+  padding-right: 10px;
+}
+
+.chat-box .chat-input input {
+  margin-right: 10px;
+}
+
+/* Message */
+
+.their-message {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.their-message .avatar {
+  margin: 0;
+}
+
+.their-message p {
+  background: #f5f5fa;
+  border-radius: 10px;
+  border-top-left-radius: 0;
+  padding: 12px;
+  margin-left: 10px;
+
+  width: 70%;
+}
+
+.own-message {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.own-message p {
+  background: #615dfa;
+  border-radius: 10px;
+  border-top-right-radius: 0;
+  padding: 12px;
+  width: 70%;
+  color: #fff;
+}

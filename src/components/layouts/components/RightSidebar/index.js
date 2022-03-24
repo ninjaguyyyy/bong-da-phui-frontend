@@ -1,5 +1,4 @@
 import React from 'react';
-import Avatar, { AvatarSize } from '../../../Common/Avatar';
 import { FaGlobeAsia } from 'react-icons/fa';
 import OnlineUserItem from './OnlineUserItem';
 

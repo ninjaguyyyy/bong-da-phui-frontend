@@ -14,9 +14,7 @@ export default function Header() {
           <span>BONG DA PHUI</span>
         </Link>
         <div className="search">
-          <div className="input-group">
-            <FormControl type="text" placeholder="Search here for people or team" />
-          </div>
+          <FormControl type="text" placeholder="Search here for people or team" />
         </div>
         <div className="icons">
           <Nav className="util-icons">

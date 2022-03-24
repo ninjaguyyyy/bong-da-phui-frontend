@@ -137,3 +137,18 @@
 .right-sidebar .users::-webkit-scrollbar-thumb:hover {
   background-color: #a8bbbf;
 }
+
+/* Chat Box Area */
+.chat-box-area {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  margin-right: 100px;
+  z-index: 2;
+
+  display: flex;
+}
+
+.chat-box-area .chat-box {
+  margin-left: 20px;
+}

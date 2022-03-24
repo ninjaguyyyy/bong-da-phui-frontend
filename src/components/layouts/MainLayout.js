@@ -1,4 +1,5 @@
 import React from 'react';
+import ChatBoxArea from './components/ChatBoxArea';
 import Header from './components/Header';
 import LeftSidebar from './components/LeftSidebar';
 import RightSidebar from './components/RightSidebar';
@@ -13,6 +14,7 @@ export default function MainLayout(props) {
 
         <main className="main-content">{props.children}</main>
 
+        <ChatBoxArea />
         <RightSidebar />
       </div>
     </>
