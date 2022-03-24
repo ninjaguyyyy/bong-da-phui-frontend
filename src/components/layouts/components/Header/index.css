@@ -1,0 +1,78 @@
+.header {
+  background-color: #615dfa;
+  padding: 15px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
+}
+
+.header .wrapper {
+  display: flex;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.header .search {
+  /* flex-grow: 1; */
+  width: 450px;
+}
+
+.header .search input {
+  background-color: #4e4ac8;
+  border: none;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 10px;
+}
+
+.header .search input:focus {
+  box-shadow: none;
+}
+
+.header .search input::placeholder {
+  color: #ffffff61;
+}
+
+.header .icons {
+  display: flex;
+  align-items: center;
+}
+
+.header .brand {
+  color: #fff;
+  text-decoration: none;
+
+  font-family: 'Titillium Web', sans-serif;
+  font-weight: 900;
+  font-size: 1.25rem;
+  display: flex;
+  /* flex-grow: 1; */
+}
+
+.header .brand img {
+  margin-right: 15px;
+  width: 30px;
+}
+
+.header .util-icons {
+  margin-bottom: 3px;
+  margin-right: 40px;
+}
+
+.header .setting-icon {
+  color: #fff;
+  border-left: 1px solid #ccc;
+  padding-left: 50px;
+  display: flex;
+}
+
+.navbar-dark .navbar-nav .nav-link:focus,
+.navbar-dark .navbar-nav .nav-link:hover {
+  color: #fff;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+  margin: 0 15px;
+}

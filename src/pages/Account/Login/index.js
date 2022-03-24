@@ -27,7 +27,6 @@ export default function Login() {
 
   return (
     <>
-      {console.log({ isLogged })}
       {isLogged ? (
         <Navigate to="/" />
       ) : (

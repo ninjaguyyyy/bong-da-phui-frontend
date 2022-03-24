@@ -1,16 +1,139 @@
 .wrapper {
-  /* height: 100%; */
-  height: 100vh;
+  height: 100%;
+  /* height: 100vh; */
+  font-family: 'Rajdhani', sans-serif;
+}
+
+.main-content {
+  background-color: #f6f5f9;
+  flex-grow: 1;
+  padding: 74px 208px 0 204px;
+  height: 100%;
 }
 
 .left-sidebar {
   height: 100%;
   width: 200px;
-  background: red;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  padding-top: 100px;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.left-sidebar .sidebar-items {
+  margin: 50px 0;
+  margin-right: 20px;
+  width: 100%;
+}
+
+.left-sidebar .sidebar-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  text-decoration: none;
+  padding: 10px 10px;
+  color: #3e3f5e;
+}
+
+.left-sidebar .sidebar-item:hover svg,
+.left-sidebar .sidebar-item:hover span {
+  color: #23d2e2 !important;
+}
+
+.left-sidebar .sidebar-item.active,
+.left-sidebar .sidebar-item.active span {
+  background: #23d2e2;
+  border-radius: 10px;
+}
+
+.left-sidebar .sidebar-item.active svg,
+.left-sidebar .sidebar-item.active span {
+  color: #fff !important;
+}
+
+.left-sidebar .sidebar-item span {
+  margin-left: 10px;
+  font-size: 1.125rem;
+  font-weight: 600;
 }
 
 .right-sidebar {
-  height: 100%;
-  width: 100px;
-  background: red;
+  height: 100vh;
+  background: #fff;
+  padding: 74px 0px 0 0px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 1;
+}
+
+.right-sidebar .title {
+  height: 10%;
+  background: #23d2e2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  font-size: 1.125rem;
+  font-weight: 600;
+}
+
+.right-sidebar .title span {
+  margin-left: 10px;
+}
+
+.right-sidebar .users {
+  flex-grow: 1;
+  overflow-y: scroll;
+  padding: 10px 20px 0 20px;
+}
+
+.right-sidebar .user {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.right-sidebar .user .info {
+  margin-left: 10px;
+}
+
+.right-sidebar .user .name {
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.right-sidebar .user .team {
+  font-size: 0.8rem;
+}
+
+/*custom scrollbar*/
+
+.right-sidebar .users::-webkit-scrollbar {
+  width: 20px;
+}
+
+.right-sidebar .users::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+.right-sidebar .users::-webkit-scrollbar-thumb {
+  background-color: #d6dee1;
+  border-radius: 20px;
+  border: 9px solid transparent;
+  background-clip: content-box;
+}
+
+.right-sidebar .users::-webkit-scrollbar-thumb:hover {
+  background-color: #a8bbbf;
 }
