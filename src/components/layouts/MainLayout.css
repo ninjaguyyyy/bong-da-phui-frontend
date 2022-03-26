@@ -62,6 +62,8 @@
   font-weight: 600;
 }
 
+/* right sidebar */
+
 .right-sidebar {
   height: 100vh;
   background: #fff;
@@ -95,13 +97,24 @@
 .right-sidebar .users {
   flex-grow: 1;
   overflow-y: scroll;
-  padding: 10px 20px 0 20px;
+  padding-top: 10px;
 }
 
 .right-sidebar .user {
   display: flex;
   align-items: center;
-  margin-bottom: 20px;
+  width: 220px;
+  cursor: pointer;
+  padding: 14px 20px;
+  border-radius: 10px;
+}
+
+.right-sidebar .user:hover {
+  background-color: #edecec;
+}
+
+.right-sidebar .user .avatar {
+  margin: 0;
 }
 
 .right-sidebar .user .info {
@@ -143,10 +156,12 @@
   position: fixed;
   bottom: 0;
   right: 0;
-  margin-right: 100px;
+  margin-right: 150px;
   z-index: 2;
 
   display: flex;
+  width: 500px;
+  justify-content: flex-end;
 }
 
 .chat-box-area .chat-box {

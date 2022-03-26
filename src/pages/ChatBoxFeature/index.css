@@ -1,0 +1,58 @@
+.chat-box-mini-icons {
+  position: absolute;
+  bottom: 60px;
+  left: 560px;
+}
+
+.chat-box-mini-icons .new-message {
+  width: 50px;
+  height: 50px;
+  background: #fff;
+  padding: 10px;
+  border-radius: 50%;
+  box-shadow: 0 0 0 2px #cbc2bf75;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  cursor: pointer;
+}
+
+.chat-box-icons .avatar {
+  margin-bottom: 15px;
+}
+
+.chat-box-icon {
+  position: relative;
+  cursor: pointer;
+}
+
+.chat-box-icon svg {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  background-color: #fff;
+  border-radius: 50%;
+  z-index: 3;
+}
+
+.chat-box-icon svg:hover {
+  background-color: #000;
+  cursor: pointer;
+  color: #fff;
+}
+
+.chat-box-icon .message-count {
+  position: absolute;
+  top: 15px;
+  left: -12px;
+  background-color: #23d2e2;
+  color: #fff;
+  font-weight: 600;
+  border-radius: 50%;
+  z-index: 3;
+  width: 20px;
+  height: 20px;
+  text-align: center;
+}

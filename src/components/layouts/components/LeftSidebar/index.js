@@ -7,7 +7,7 @@ export default function LeftSidebar() {
   return (
     <div className="left-sidebar">
       <div>
-        <Avatar />
+        <Avatar size={64} />
         <div className="sidebar-items">
           <Link to="/marketplace1" className="sidebar-item ">
             <BsBasket size={25} color="#adafca" />

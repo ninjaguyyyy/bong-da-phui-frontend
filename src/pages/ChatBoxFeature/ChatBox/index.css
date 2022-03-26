@@ -15,6 +15,10 @@
   background: none;
 }
 
+.chat-box .card-header svg {
+  cursor: pointer;
+}
+
 .chat-box .card-header .receiver {
   display: flex;
   align-items: center;

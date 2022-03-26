@@ -1,11 +1,10 @@
 import React from 'react';
-import ChatBox from '../../../ChatBox';
+import ChatBoxFeature from '../../../../pages/ChatBoxFeature';
 
 export default function ChatBoxArea() {
   return (
     <div className="chat-box-area">
-      <ChatBox />
-      <ChatBox />
+      <ChatBoxFeature />
     </div>
   );
 }
