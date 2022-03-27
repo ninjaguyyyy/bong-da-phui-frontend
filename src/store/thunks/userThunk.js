@@ -1,14 +1,14 @@
-import { createAsyncThunk } from "@reduxjs/toolkit";
-import { authService } from "../../services";
+import { createAsyncThunk } from '@reduxjs/toolkit';
+import { authService } from '../../services';
 
 export const LoginMethods = {
-  Username: "username",
-  Facebook: "facebook",
-  Google: "google",
+  Username: 'username',
+  Facebook: 'facebook',
+  Google: 'google',
 };
 
 export const fetchUser = createAsyncThunk(
-  "user/fetch",
+  'user/fetch',
   async ({ method, tokenId, userID, accessToken }) => {
     let result;
 
@@ -22,4 +22,6 @@ export const fetchUser = createAsyncThunk(
 
     return result;
   }
+
+  // feature chat
 );
