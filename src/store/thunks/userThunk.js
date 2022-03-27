@@ -23,5 +23,5 @@ export const fetchUser = createAsyncThunk(
     return result;
   }
 
-  // feature chat
+  // fuck up in the night
 );
