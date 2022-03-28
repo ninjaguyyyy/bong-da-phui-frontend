@@ -5,4 +5,9 @@ export const usersService = {
     const url = '/api/users';
     return axiosClient.get(url);
   },
+
+  getByToken: () => {
+    const url = '/api/users/by-access-token';
+    return axiosClient.get(url);
+  },
 };

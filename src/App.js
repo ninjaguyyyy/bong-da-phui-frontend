@@ -1,14 +1,20 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
-import "bootstrap/dist/css/bootstrap.min.css";
-import "./App.css";
-import Home from "./pages/Home";
-import Account from "./pages/Account";
-import { Provider } from "react-redux";
-import store from "./store";
-import RequireAuth from "./HOC/RequireAuth";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './App.css';
+import Home from './pages/Home';
+import Account from './pages/Account';
+import { Provider } from 'react-redux';
+import store from './store';
+import RequireAuth from './HOC/RequireAuth';
+import { openSocket } from './services/socketService';
+import { useEffect } from 'react';
 
 function App() {
+  useEffect(() => {
+    // openSocket();
+  }, []);
+
   return (
     <Provider store={store}>
       <BrowserRouter>

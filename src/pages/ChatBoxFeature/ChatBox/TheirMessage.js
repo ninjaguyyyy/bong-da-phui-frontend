@@ -1,11 +1,11 @@
 import React from 'react';
-import Avatar, { AvatarSize } from '../../../components/Common/Avatar';
+import Avatar from '../../../components/Common/Avatar';
 
-export default function TheirMessage() {
+export default function TheirMessage({ sender, text }) {
   return (
     <div className="their-message">
-      <Avatar size={38} />
-      <p>You're right, it's been a really long time! I think the last time we saw was at Neko's party</p>
+      <Avatar size={38} image={sender.avatar} />
+      <p>{text}</p>
     </div>
   );
 }

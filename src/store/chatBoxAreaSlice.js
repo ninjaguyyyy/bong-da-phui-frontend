@@ -16,9 +16,15 @@ export const chatBoxAreaSlice = createSlice({
     removeChatBox(state, action) {
       state.boxes = state.boxes.filter(({ id }) => action.payload !== id);
     },
+    swapChatBoxToFirst(state, action) {
+      const index = state.boxes.findIndex((box) => box.id === action.payload);
+      const temp = state.boxes[index];
+      state.boxes[index] = state.boxes[0];
+      state.boxes[0] = temp;
+    },
   },
 });
 
-export const { addChatBox, removeChatBox } = chatBoxAreaSlice.actions;
+export const { addChatBox, removeChatBox, swapChatBoxToFirst } = chatBoxAreaSlice.actions;
 
 export default chatBoxAreaSlice.reducer;

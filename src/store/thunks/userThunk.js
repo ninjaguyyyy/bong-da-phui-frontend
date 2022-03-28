@@ -7,21 +7,16 @@ export const LoginMethods = {
   Google: 'google',
 };
 
-export const fetchUser = createAsyncThunk(
-  'user/fetch',
-  async ({ method, tokenId, userID, accessToken }) => {
-    let result;
+export const fetchUser = createAsyncThunk('user/fetch', async ({ method, tokenId, userID, accessToken }) => {
+  let result;
 
-    if (method === LoginMethods.Facebook) {
-      result = await authService.loginWithFacebook(userID, accessToken);
-    }
-
-    if (method === LoginMethods.Google) {
-      result = await authService.loginWithGoogle(tokenId);
-    }
-
-    return result;
+  if (method === LoginMethods.Facebook) {
+    result = await authService.loginWithFacebook(userID, accessToken);
   }
 
-  // fuck up in the night
-);
+  if (method === LoginMethods.Google) {
+    result = await authService.loginWithGoogle(tokenId);
+  }
+
+  return result;
+});

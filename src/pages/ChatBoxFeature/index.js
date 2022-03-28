@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { BsPencilSquare } from 'react-icons/bs';
 import { useSelector } from 'react-redux';
 import ChatBox from './ChatBox';
@@ -6,8 +6,11 @@ import ChatBoxMiniIcon from './ChatBoxMiniIcon';
 import './index.css';
 
 export default function ChatBoxFeature() {
+  useEffect(() => {
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   const boxes = useSelector((state) => state.chatBoxArea.boxes);
-  console.log('🚀 ~ file: index.js ~ line 10 ~ ChatBoxFeature ~ boxes', boxes);
   const mainBoxes = boxes.slice(0, 2);
   const miniBoxes = boxes.slice(2);
 
@@ -15,7 +18,6 @@ export default function ChatBoxFeature() {
     <>
       <div className="chat-box-mini-icons">
         <div className="chat-box-icons">
-          {console.log(miniBoxes)}
           {miniBoxes.map((box) => (
             <ChatBoxMiniIcon id={box.id} key={box.id} name={box.name} />
           ))}

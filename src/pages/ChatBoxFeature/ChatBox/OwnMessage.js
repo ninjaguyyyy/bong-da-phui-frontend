@@ -1,9 +1,9 @@
 import React from 'react';
 
-export default function OwnMessage() {
+export default function OwnMessage({ text }) {
   return (
     <div className="own-message">
-      <p>You're right, it's been a really long time!</p>
+      <p>{text}</p>
     </div>
   );
 }

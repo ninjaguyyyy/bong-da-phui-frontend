@@ -1,20 +1,16 @@
-import { createSlice } from "@reduxjs/toolkit";
-import { isLogin, setAccessToken } from "../utils";
-import { fetchUser } from "./thunks";
+import { createSlice } from '@reduxjs/toolkit';
+import { getLoggedUser, isLogin, setAccessToken, setLoggedUser } from '../utils';
+import { fetchUser } from './thunks';
 
 const initialState = {
   isLogged: isLogin(),
   loading: false,
   error: null,
-  data: {
-    username: null,
-    name: null,
-    avatar: null,
-  },
+  data: getLoggedUser(),
 };
 
 export const userSlice = createSlice({
-  name: "user",
+  name: 'user',
   initialState,
   reducers: {},
   extraReducers: (builder) => {
@@ -23,15 +19,16 @@ export const userSlice = createSlice({
     });
 
     builder.addCase(fetchUser.fulfilled, (state, action) => {
-      console.log("fulfilled", action.payload);
+      console.log('fulfilled', action.payload);
       state.loading = false;
       state.isLogged = true;
       state.data = action.payload.user;
+      setLoggedUser(action.payload.user);
       setAccessToken(action.payload.tokens.access.token);
     });
 
     builder.addCase(fetchUser.rejected, (state, action) => {
-      console.log("rejected", action);
+      console.log('rejected', action);
       state.loading = false;
       state.err = action.payload;
     });
