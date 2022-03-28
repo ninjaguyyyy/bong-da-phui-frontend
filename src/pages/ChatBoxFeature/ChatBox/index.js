@@ -5,13 +5,10 @@ import { IoIosSend } from 'react-icons/io';
 import { useDispatch, useSelector } from 'react-redux';
 import Avatar from '../../../components/Common/Avatar';
 import { conversationsService, messagesService } from '../../../services';
-import { listenMessage } from '../../../services/socketService';
 import { removeChatBox } from '../../../store/chatBoxAreaSlice';
 import ChatMessage from './ChatMessage';
-
+import { sendMessage, joinChat, listenMessage, leaveChat } from '../../../services/socketService';
 import './index.css';
-import OwnMessage from './OwnMessage';
-import TheirMessage from './TheirMessage';
 
 export default function ChatBox({ receiver }) {
   const dispatch = useDispatch();
@@ -30,14 +27,16 @@ export default function ChatBox({ receiver }) {
   const [conversation, setConversation] = useState(null);
 
   const handleSend = async () => {
+    sendMessage(user, inputMessage, conversation.id);
+
     const { message } = await messagesService.create(conversation.id, user.id, inputMessage);
-    setMessages([...messages, message]);
+    setMessages([message, ...messages]);
     setInputMessage('');
   };
 
   const handler = (data) => {
     setMessages((prev) => {
-      return [...prev, data];
+      return [{ ...data, id: Math.random() }, ...prev];
     });
   };
 
@@ -47,19 +46,19 @@ export default function ChatBox({ receiver }) {
       const { conversation } = await conversationsService.create([receiver.id, user.id]);
       fetchedConversation = conversation;
     }
+
     setConversation(fetchedConversation);
 
     const { results } = await messagesService.getByConversation(fetchedConversation.id);
     setMessages(results);
+    joinChat(fetchedConversation.id);
   };
 
   useEffect(() => {
     fetchMessages();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+    listenMessage(handler);
 
-  useEffect(() => {
-    // listenMessage(handler);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(scrollToBottom, [messages]);
@@ -82,7 +81,7 @@ export default function ChatBox({ receiver }) {
                 <Avatar size={64} image={avatar} />
               </div>
 
-              {messages.map((message) => (
+              {[...messages].reverse().map((message) => (
                 <ChatMessage key={message.id} sender={message.sender} text={message.text} />
               ))}
 
@@ -96,7 +95,7 @@ export default function ChatBox({ receiver }) {
               placeholder="Write a message ..."
               onChange={(e) => setInputMessage(e.target.value)}
               value={inputMessage}
-              onKeyDown={(e) => e.code === 'Enter' && handleSend()}
+              onKeyDown={(e) => e.keyCode === 13 && handleSend()}
             />
             <IoIosSend size={30} color="#615dfa" onClick={() => handleSend()} />
           </div>

@@ -1,12 +1,15 @@
 import React, { useEffect } from 'react';
 import { BsPencilSquare } from 'react-icons/bs';
 import { useSelector } from 'react-redux';
+import { openChatSocket } from '../../services/socketService';
 import ChatBox from './ChatBox';
 import ChatBoxMiniIcon from './ChatBoxMiniIcon';
 import './index.css';
 
 export default function ChatBoxFeature() {
   useEffect(() => {
+    openChatSocket();
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
