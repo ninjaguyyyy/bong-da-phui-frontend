@@ -113,6 +113,16 @@
   background-color: #edecec;
 }
 
+.right-sidebar .user .status-avatar {
+  position: relative;
+}
+
+.right-sidebar .user .status-avatar svg {
+  position: absolute;
+  top: -22px;
+  left: -26px;
+}
+
 .right-sidebar .user .avatar {
   margin: 0;
 }

@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import logo from '../../logo.svg';
+import { notifyOnline, openOnlineUsersSocket } from '../../services/socketService';
 
 export default function Home() {
   return (

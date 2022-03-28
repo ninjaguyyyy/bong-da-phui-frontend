@@ -1,16 +1,44 @@
 import React, { useEffect, useState } from 'react';
 import { FaGlobeAsia } from 'react-icons/fa';
-import { usersService } from '../../../../services';
+import { useSelector } from 'react-redux';
+import {
+  getList,
+  listenNewOnlineUser,
+  listenReceiveList,
+  listenRemoveOnlineUser,
+  notifyOnline,
+  openOnlineUsersSocket,
+} from '../../../../services/socketService';
 import OnlineUserItem from './OnlineUserItem';
 
 export default function RightSidebar() {
+  const user = useSelector((state) => state.user.data);
   const [onlineUsers, setOnlineUsers] = useState([]);
 
+  const handleReceiveOnlineUsers = (users) => {
+    setOnlineUsers(users);
+  };
+
+  const handleAdd = (user) => {
+    setOnlineUsers((prevState) => {
+      return [...prevState, user];
+    });
+  };
+
+  const handleRemove = (user) => {
+    setOnlineUsers((prevState) => {
+      const updated = prevState.filter(({ id }) => id !== user.id);
+      return [...updated];
+    });
+  };
+
   useEffect(() => {
-    (async () => {
-      const { results } = await usersService.getAll();
-      setOnlineUsers(results);
-    })();
+    openOnlineUsersSocket();
+    notifyOnline(user);
+    getList();
+    listenReceiveList((users) => handleReceiveOnlineUsers(users));
+    listenNewOnlineUser((user) => handleAdd(user));
+    listenRemoveOnlineUser((user) => handleRemove(user));
   }, []);
 
   return (
