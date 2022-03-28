@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Card, FormControl } from 'react-bootstrap';
 import { BsXLg } from 'react-icons/bs';
 import { IoIosSend } from 'react-icons/io';
@@ -17,6 +17,12 @@ export default function ChatBox({ receiver }) {
   const dispatch = useDispatch();
   const user = useSelector((state) => state.user.data);
   const { name, id, avatar } = receiver;
+
+  const messagesEndRef = useRef(null);
+
+  const scrollToBottom = () => {
+    messagesEndRef.current.scrollIntoView({ behavior: 'smooth' });
+  };
 
   // stateMessage
   const [messages, setMessages] = useState([]);
@@ -56,6 +62,8 @@ export default function ChatBox({ receiver }) {
     // listenMessage(handler);
   }, []);
 
+  useEffect(scrollToBottom, [messages]);
+
   return (
     <div className="chat-box">
       <Card border="info">
@@ -77,6 +85,8 @@ export default function ChatBox({ receiver }) {
               {messages.map((message) => (
                 <ChatMessage key={message.id} sender={message.sender} text={message.text} />
               ))}
+
+              <div ref={messagesEndRef} />
             </div>
           </div>
 
@@ -86,6 +96,7 @@ export default function ChatBox({ receiver }) {
               placeholder="Write a message ..."
               onChange={(e) => setInputMessage(e.target.value)}
               value={inputMessage}
+              onKeyDown={(e) => e.code === 'Enter' && handleSend()}
             />
             <IoIosSend size={30} color="#615dfa" onClick={() => handleSend()} />
           </div>
